@@ -3,6 +3,9 @@
     <v-navigation-drawer class="bg-deep-purple px-3" permanent>
       <v-list color="transparent"> </v-list>
     </v-navigation-drawer>
+    <v-main>
+      <router-view />
+    </v-main>
   </v-layout>
 </template>
 
