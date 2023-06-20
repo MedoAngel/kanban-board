@@ -4,6 +4,7 @@
       <v-list color="transparent"> </v-list>
     </v-navigation-drawer>
     <v-main>
+      <v-toolbar title="Board Name" density="comfortable"></v-toolbar>
       <router-view />
     </v-main>
   </v-layout>
