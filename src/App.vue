@@ -2,6 +2,9 @@
   <v-layout>
     <v-navigation-drawer class="bg-deep-purple px-3" permanent>
       <v-list color="transparent"> </v-list>
+      <template #append>
+        <ThemeModeSwitch @changeMode="changeThemeMode" />
+      </template>
     </v-navigation-drawer>
     <v-main>
       <v-toolbar title="Board Name" density="comfortable"></v-toolbar>
@@ -9,6 +12,17 @@
     </v-main>
   </v-layout>
 </template>
+
+<script setup lang="ts">
+import { useTheme } from "vuetify";
+import ThemeModeSwitch from "@/components/ThemeModeSwitch.vue";
+
+const theme = useTheme();
+
+function changeThemeMode(toDarkMode: boolean): void {
+  theme.global.name.value = toDarkMode ? "dark" : "light";
+}
+</script>
 
 <style lang="scss">
 #app {
