@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card class="pa-7">
+    <v-card class="pa-3">
       <v-container>
         <v-row>
           <v-col>
