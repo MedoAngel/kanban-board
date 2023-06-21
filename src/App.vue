@@ -19,7 +19,7 @@
 <script setup lang="ts">
 import { useTheme } from "vuetify";
 import ThemeModeSwitch from "@/components/ThemeModeSwitch.vue";
-import AddBoardBtn from "@/components/AddBoardBtn.vue";
+import AddBoardBtn from "@/components/board/AddBoardBtn.vue";
 
 const theme = useTheme();
 
