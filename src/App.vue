@@ -48,6 +48,10 @@ function handleSave(boardName: string) {
   color: #2c3e50;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 nav {
   padding: 30px;
 
