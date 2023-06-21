@@ -1,6 +1,9 @@
 <template>
   <v-layout>
     <v-navigation-drawer class="bg-deep-purple px-3" permanent>
+      <template #prepend>
+        <AddBoardBtn />
+      </template>
       <v-list color="transparent"> </v-list>
       <template #append>
         <ThemeModeSwitch @changeMode="changeThemeMode" />
@@ -16,6 +19,7 @@
 <script setup lang="ts">
 import { useTheme } from "vuetify";
 import ThemeModeSwitch from "@/components/ThemeModeSwitch.vue";
+import AddBoardBtn from "@/components/AddBoardBtn.vue";
 
 const theme = useTheme();
 
