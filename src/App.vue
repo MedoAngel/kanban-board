@@ -2,7 +2,7 @@
   <v-layout>
     <v-navigation-drawer class="bg-deep-purple px-3" permanent>
       <template #prepend>
-        <AddBoardBtn />
+        <AddBoardBtn @click="showBoardForm = true" />
       </template>
       <v-list color="transparent"> </v-list>
       <template #append>
@@ -14,17 +14,28 @@
       <router-view />
     </v-main>
   </v-layout>
+
+  <v-dialog class="v-col-3" v-model="showBoardForm">
+    <BoardForm @save="handleSave" @cancel="showBoardForm = false" v-if="showBoardForm" />
+  </v-dialog>
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import { useTheme } from "vuetify";
 import ThemeModeSwitch from "@/components/ThemeModeSwitch.vue";
 import AddBoardBtn from "@/components/board/AddBoardBtn.vue";
+import BoardForm from "@/components/board/BoardForm.vue";
 
 const theme = useTheme();
+const showBoardForm = ref(false);
 
 function changeThemeMode(toDarkMode: boolean): void {
   theme.global.name.value = toDarkMode ? "dark" : "light";
+}
+
+function handleSave(boardName: string) {
+  console.log(boardName);
 }
 </script>
 
