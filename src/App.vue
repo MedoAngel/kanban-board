@@ -19,7 +19,12 @@
     </v-navigation-drawer>
 
     <v-main>
-      <v-toolbar :title="currentBoard" density="comfortable"></v-toolbar>
+      <v-toolbar :title="currentBoard" density="comfortable">
+        <template #append>
+          <AddNewBtn @click="showColumnForm = true">Add New Column</AddNewBtn>
+        </template>
+      </v-toolbar>
+
       <v-window v-model="currentBoard">
         <v-window-item v-for="(board, idx) in boards" :value="board.name" :key="idx">
           <BoardWindow v-bind="board" />
