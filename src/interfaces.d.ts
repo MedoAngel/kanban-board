@@ -1,15 +1,15 @@
 interface Board {
+  id?: Id;
   name: string;
-  columns: Column[];
 }
 
 interface Column {
+  id?: Id;
   name: string;
-  cards: Card[];
 }
 
 interface Card {
-  id: string | number;
+  id?: Id;
   title: string;
   content: string;
   status: string;
