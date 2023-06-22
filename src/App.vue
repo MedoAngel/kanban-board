@@ -31,6 +31,10 @@
   <v-dialog class="v-col-3" v-model="showBoardForm">
     <BoardForm @save="handleSave" @cancel="showBoardForm = false" v-if="showBoardForm" />
   </v-dialog>
+
+  <v-dialog class="v-col-3" v-model="showColumnForm">
+    <ColumnForm @save="handleSave" @cancel="showColumnForm = false" v-if="showColumnForm" />
+  </v-dialog>
 </template>
 
 <script setup lang="ts">
@@ -40,10 +44,14 @@ import ThemeModeSwitch from "@/components/ThemeModeSwitch.vue";
 import BoardForm from "@/components/board/BoardForm.vue";
 import BoardWindow from "@/components/board/BoardWindow.vue";
 import AddNewBtn from "@/components/AddNewBtn.vue";
+import ColumnForm from "@/components/column/ColumnForm.vue";
 
 const theme = useTheme();
+
 const showBoardForm = ref(false);
 const currentBoard = ref("");
+
+const showColumnForm = ref(false);
 
 function changeThemeMode(toDarkMode: boolean): void {
   theme.global.name.value = toDarkMode ? "dark" : "light";
