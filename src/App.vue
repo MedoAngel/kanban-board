@@ -34,7 +34,7 @@
   </v-layout>
 
   <v-dialog class="v-col-3" v-model="showBoardForm">
-    <BoardForm @save="handleSave" @cancel="showBoardForm = false" v-if="showBoardForm" />
+    <BoardForm @save="saveBoard" @cancel="showBoardForm = false" v-if="showBoardForm" />
   </v-dialog>
 
   <v-dialog class="v-col-3" v-model="showColumnForm">
@@ -50,7 +50,7 @@ import BoardForm from "@/components/board/BoardForm.vue";
 import BoardWindow from "@/components/board/BoardWindow.vue";
 import AddNewBtn from "@/components/AddNewBtn.vue";
 import ColumnForm from "@/components/column/ColumnForm.vue";
-import { getBoards } from "@/api/board";
+import { sendSaveBoard, getBoards } from "@/api/board";
 
 const theme = useTheme();
 
@@ -68,8 +68,14 @@ function changeThemeMode(toDarkMode: boolean): void {
   theme.global.name.value = toDarkMode ? "dark" : "light";
 }
 
-function handleSave(boardName: string) {
-  console.log(boardName);
+function saveBoard(boardName: string) {
+  const board = { name: boardName, columns: [] };
+
+  sendSaveBoard(board).then(() => {
+    boards.value.push(board);
+
+    showBoardForm.value = false;
+  });
 }
 </script>
 
