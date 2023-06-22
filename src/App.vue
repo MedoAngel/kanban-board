@@ -50,13 +50,19 @@ import BoardForm from "@/components/board/BoardForm.vue";
 import BoardWindow from "@/components/board/BoardWindow.vue";
 import AddNewBtn from "@/components/AddNewBtn.vue";
 import ColumnForm from "@/components/column/ColumnForm.vue";
+import { getBoards } from "@/api/board";
 
 const theme = useTheme();
 
 const showBoardForm = ref(false);
 const currentBoard = ref("");
-
 const showColumnForm = ref(false);
+const boards = ref([]);
+
+getBoards().then(({ data }) => {
+  boards.value = data;
+  currentBoard.value = data[0].name;
+});
 
 function changeThemeMode(toDarkMode: boolean): void {
   theme.global.name.value = toDarkMode ? "dark" : "light";
