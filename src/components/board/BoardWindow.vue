@@ -16,5 +16,5 @@ import { getBoardColumns } from "@/api/columns";
 const board = defineProps(["id", "name"]);
 const columns = ref([]);
 
-getBoardColumns(board.id).then(({ data }) => (columns.value = data));
+getBoardColumns(board).then(({ data }) => (columns.value = data));
 </script>
