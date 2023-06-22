@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card color="grey-lighten-2" class="elevation-5 pa-2 text-left" min-height="40vh">
+    <v-card color="grey-lighten-2" class="elevation-5 pa-2 text-left">
       <template #title>
         <v-container class="pa-1">
           <v-row>
@@ -20,7 +20,20 @@
           </v-row>
         </v-container>
       </template>
-      <KanbanCard class="py-2 px-0" v-for="(card, idx) in props.cards" v-bind="card" :key="idx" />
+      <draggable
+        class="droppable-area"
+        :group="props.board"
+        :list="props.cards"
+        @start="drag = true"
+        @end="drag = false"
+        ghost-class="ghost"
+        drag-class="dragged"
+        item-key="id"
+      >
+        <template #item="{ element }">
+          <KanbanCard class="py-2 px-0" v-bind="element" />
+        </template>
+      </draggable>
     </v-card>
     <v-dialog class="v-col-3" v-model="showCardForm">
       <CardForm @save="handleSave" @cancel="showCardForm = false" v-if="showCardForm" />
@@ -32,7 +45,25 @@
 import { ref } from "vue";
 import KanbanCard from "@/components/card/KanbanCard.vue";
 import CardForm from "@/components/card/CardForm.vue";
+import draggable from "vuedraggable";
 
 const props = defineProps(["board", "name", "cards"]);
 const showCardForm = ref(false);
+const drag = ref(false);
 </script>
+
+<style scoped>
+.droppable-area {
+  position: relative;
+  min-height: 20vh;
+}
+
+.dragged {
+  opacity: 1;
+  padding: 0px !important;
+}
+
+.ghost {
+  visibility: hidden;
+}
+</style>
