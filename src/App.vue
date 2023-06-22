@@ -4,6 +4,7 @@
       <template #prepend>
         <AddBoardBtn @click="showBoardForm = true" />
       </template>
+
       <v-list color="transparent">
         <v-tabs v-model="currentBoard" direction="vertical">
           <v-tab v-for="(board, idx) in boards" :key="idx" :value="board.name">
@@ -11,10 +12,12 @@
           </v-tab>
         </v-tabs>
       </v-list>
+
       <template #append>
         <ThemeModeSwitch @changeMode="changeThemeMode" />
       </template>
     </v-navigation-drawer>
+
     <v-main>
       <v-toolbar :title="currentBoard" density="comfortable"></v-toolbar>
       <v-window v-model="currentBoard">
