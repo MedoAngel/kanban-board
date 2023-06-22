@@ -13,7 +13,8 @@
                 density="compact"
                 size="small"
                 variant="icon"
-                icon="fas  fa-plus"
+                icon="fas fa-plus"
+                @click="showCardForm = true"
               ></v-btn>
             </v-col>
           </v-row>
@@ -21,11 +22,17 @@
       </template>
       <KanbanCard class="py-2 px-0" v-for="(card, idx) in props.cards" v-bind="card" :key="idx" />
     </v-card>
+    <v-dialog class="v-col-3" v-model="showCardForm">
+      <CardForm @save="handleSave" @cancel="showCardForm = false" v-if="showCardForm" />
+    </v-dialog>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import KanbanCard from "@/components/card/KanbanCard.vue";
+import CardForm from "@/components/card/CardForm.vue";
 
 const props = defineProps(["name", "cards"]);
+const showCardForm = ref(false);
 </script>
