@@ -40,6 +40,7 @@ import ThemeModeSwitch from "@/components/ThemeModeSwitch.vue";
 import AddBoardBtn from "@/components/board/AddBoardBtn.vue";
 import BoardForm from "@/components/board/BoardForm.vue";
 import BoardWindow from "@/components/board/BoardWindow.vue";
+import AddNewBtn from "@/components/AddNewBtn.vue";
 
 const theme = useTheme();
 const showBoardForm = ref(false);
