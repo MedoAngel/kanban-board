@@ -31,7 +31,7 @@
         item-key="id"
       >
         <template #item="{ element }">
-          <KanbanCard class="py-2 px-0" v-bind="element" />
+          <KanbanCard class="my-4 px-0" v-bind="element" />
         </template>
       </draggable>
     </v-card>
