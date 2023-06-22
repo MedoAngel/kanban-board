@@ -9,7 +9,12 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import KanbanColumn from "@/components/column/KanbanColumn.vue";
+import { getBoardColumns } from "@/api/columns";
 
-const props = defineProps(["name", "columns"]);
+const board = defineProps(["id", "name"]);
+const columns = ref([]);
+
+getBoardColumns(board.id).then(({ data }) => (columns.value = data));
 </script>
