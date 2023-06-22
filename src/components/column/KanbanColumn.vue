@@ -33,6 +33,6 @@ import { ref } from "vue";
 import KanbanCard from "@/components/card/KanbanCard.vue";
 import CardForm from "@/components/card/CardForm.vue";
 
-const props = defineProps(["name", "cards"]);
+const props = defineProps(["board", "name", "cards"]);
 const showCardForm = ref(false);
 </script>
