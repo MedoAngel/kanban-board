@@ -2,7 +2,7 @@
   <v-layout>
     <v-navigation-drawer class="bg-deep-purple px-3" permanent>
       <template #prepend>
-        <AddBoardBtn @click="showBoardForm = true" />
+        <AddNewBtn @click="showBoardForm = true">Add New Board</AddNewBtn>
       </template>
 
       <v-list color="transparent">
@@ -37,7 +37,6 @@
 import { ref } from "vue";
 import { useTheme } from "vuetify";
 import ThemeModeSwitch from "@/components/ThemeModeSwitch.vue";
-import AddBoardBtn from "@/components/board/AddBoardBtn.vue";
 import BoardForm from "@/components/board/BoardForm.vue";
 import BoardWindow from "@/components/board/BoardWindow.vue";
 import AddNewBtn from "@/components/AddNewBtn.vue";
