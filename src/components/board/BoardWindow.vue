@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import KanbanColumn from "@/components/KanbanColumn.vue";
+import KanbanColumn from "@/components/column/KanbanColumn.vue";
 
 const props = defineProps(["name", "columns"]);
 </script>
