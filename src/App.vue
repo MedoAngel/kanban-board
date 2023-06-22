@@ -16,8 +16,12 @@
       </template>
     </v-navigation-drawer>
     <v-main>
-      <v-toolbar title="Board Name" density="comfortable"></v-toolbar>
-      <router-view />
+      <v-toolbar :title="currentBoard" density="comfortable"></v-toolbar>
+      <v-window v-model="currentBoard">
+        <v-window-item v-for="(board, idx) in boards" :value="board.name" :key="idx">
+          <BoardWindow v-bind="board" />
+        </v-window-item>
+      </v-window>
     </v-main>
   </v-layout>
 
@@ -32,9 +36,11 @@ import { useTheme } from "vuetify";
 import ThemeModeSwitch from "@/components/ThemeModeSwitch.vue";
 import AddBoardBtn from "@/components/board/AddBoardBtn.vue";
 import BoardForm from "@/components/board/BoardForm.vue";
+import BoardWindow from "@/components/board/BoardWindow.vue";
 
 const theme = useTheme();
 const showBoardForm = ref(false);
+const currentBoard = ref("");
 
 function changeThemeMode(toDarkMode: boolean): void {
   theme.global.name.value = toDarkMode ? "dark" : "light";
