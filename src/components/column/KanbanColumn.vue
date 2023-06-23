@@ -46,10 +46,14 @@ import { ref } from "vue";
 import KanbanCard from "@/components/card/KanbanCard.vue";
 import CardForm from "@/components/card/CardForm.vue";
 import draggable from "vuedraggable";
+import { getColumnCards } from "@/api/cards";
 
 const column = defineProps(["boardId", "name", "id"]);
 const showCardForm = ref(false);
 const drag = ref(false);
+const cards = ref([]);
+
+getColumnCards(column).then(({ data }) => (cards.value = data));
 </script>
 
 <style scoped>
