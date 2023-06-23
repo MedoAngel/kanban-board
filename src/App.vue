@@ -68,11 +68,11 @@ function changeThemeMode(toDarkMode: boolean): void {
   theme.global.name.value = toDarkMode ? "dark" : "light";
 }
 
-function saveBoard(boardName: string) {
+function saveBoard(boardName: string): void {
   const board = { name: boardName, columns: [] };
 
-  sendSaveBoard(board).then(() => {
-    boards.value.push(board);
+  sendSaveBoard(board).then(({ data }) => {
+    boards.value.push(data);
 
     showBoardForm.value = false;
   });
