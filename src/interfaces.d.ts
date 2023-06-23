@@ -1,11 +1,13 @@
 interface Board {
   id?: Id;
   name: string;
+  newColumn: Column;
 }
 
 interface Column {
   id?: Id;
   name: string;
+  boardId: Id;
 }
 
 interface Card {
@@ -13,4 +15,6 @@ interface Card {
   title: string;
   content: string;
   status: string;
+  boardId: Id;
+  columnId: Id;
 }
