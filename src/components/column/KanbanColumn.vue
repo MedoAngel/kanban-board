@@ -36,7 +36,7 @@
       </draggable>
     </v-card>
     <v-dialog class="v-col-3" v-model="showCardForm">
-      <CardForm @save="handleSave" @cancel="showCardForm = false" v-if="showCardForm" />
+      <CardForm @save="saveCard" @cancel="showCardForm = false" v-if="showCardForm" />
     </v-dialog>
   </div>
 </template>
@@ -46,12 +46,27 @@ import { ref } from "vue";
 import KanbanCard from "@/components/card/KanbanCard.vue";
 import CardForm from "@/components/card/CardForm.vue";
 import draggable from "vuedraggable";
-import { getColumnCards } from "@/api/cards";
+import { getColumnCards, sendSaveCard } from "@/api/cards";
 
 const column = defineProps(["boardId", "name", "id"]);
 const showCardForm = ref(false);
 const drag = ref(false);
 const cards = ref([]);
+
+function saveCard(cardInfo) {
+  const card = {
+    title: cardInfo.title,
+    content: cardInfo.content,
+    boardId: column.boardId,
+    columnId: column.id,
+  };
+
+  sendSaveCard(card).then(({ data }) => {
+    cards.value.push(data);
+
+    showCardForm.value = false;
+  });
+}
 
 getColumnCards(column).then(({ data }) => (cards.value = data));
 </script>
