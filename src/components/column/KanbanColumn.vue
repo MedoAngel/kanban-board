@@ -5,7 +5,7 @@
         <v-container class="pa-1">
           <v-row>
             <v-col cols="11">
-              <v-card-title>{{ props.name }}</v-card-title>
+              <v-card-title>{{ column.name }}</v-card-title>
             </v-col>
             <v-col cols="1">
               <v-btn
@@ -22,8 +22,8 @@
       </template>
       <draggable
         class="droppable-area"
-        :group="props.board"
-        :list="props.cards"
+        :group="column.boardId"
+        :list="cards"
         @start="drag = true"
         @end="drag = false"
         ghost-class="ghost"
@@ -47,7 +47,7 @@ import KanbanCard from "@/components/card/KanbanCard.vue";
 import CardForm from "@/components/card/CardForm.vue";
 import draggable from "vuedraggable";
 
-const props = defineProps(["board", "name", "cards"]);
+const column = defineProps(["boardId", "name", "id"]);
 const showCardForm = ref(false);
 const drag = ref(false);
 </script>
