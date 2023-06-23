@@ -36,7 +36,7 @@
   </v-dialog>
 
   <v-dialog class="v-col-3" v-model="showColumnForm">
-    <ColumnForm @save="handleSave" @cancel="showColumnForm = false" v-if="showColumnForm" />
+    <ColumnForm @save="saveColumn" @cancel="showColumnForm = false" v-if="showColumnForm" />
   </v-dialog>
 </template>
 
@@ -48,7 +48,8 @@ import BoardForm from "@/components/board/BoardForm.vue";
 import BoardWindow from "@/components/board/BoardWindow.vue";
 import AddNewBtn from "@/components/AddNewBtn.vue";
 import ColumnForm from "@/components/column/ColumnForm.vue";
-import { sendSaveBoard, getBoards } from "@/api/board";
+import { sendSaveBoard, getBoards } from "@/api/boards";
+import { sendSaveColumn } from "@/api/columns";
 
 const theme = useTheme();
 
@@ -73,6 +74,21 @@ function saveBoard(boardName: string): void {
     boards.value.push(data);
 
     showBoardForm.value = false;
+  });
+}
+
+function saveColumn(columnName: string): void {
+  const boardId = currentBoard.value.id;
+  const column = { name: columnName, boardId };
+
+  sendSaveColumn(column).then(({ data }) => {
+    const board = boards.value.find(({ id }) => id === boardId);
+
+    if (board) {
+      board.newColumn = data;
+    }
+
+    showColumnForm.value = false;
   });
 }
 </script>
