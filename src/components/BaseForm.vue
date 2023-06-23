@@ -2,7 +2,7 @@
   <div>
     <v-card class="pa-3">
       <v-container>
-        <v-form @submit.prevent="emit('save')">
+        <v-form ref="form" @submit.prevent="validate">
           <slot></slot>
           <v-row>
             <v-col align="start">
@@ -19,5 +19,16 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
+
+const form = ref();
 const emit = defineEmits(["cancel", "save"]);
+
+async function validate() {
+  const { valid } = await form.value.validate();
+
+  if (valid) {
+    emit("save");
+  }
+}
 </script>
