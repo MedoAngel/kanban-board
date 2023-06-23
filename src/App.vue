@@ -7,7 +7,7 @@
 
       <v-list color="transparent">
         <v-tabs v-model="currentBoard" direction="vertical">
-          <v-tab v-for="(board, idx) in boards" :key="idx" :value="board.name">
+          <v-tab v-for="(board, idx) in boards" :key="idx" :value="board">
             {{ board.name }}
           </v-tab>
         </v-tabs>
@@ -19,16 +19,14 @@
     </v-navigation-drawer>
 
     <v-main>
-      <v-toolbar :title="currentBoard" density="comfortable">
+      <v-toolbar :title="currentBoard.name" density="comfortable">
         <template #append>
           <AddNewBtn @click="showColumnForm = true">Add New Column</AddNewBtn>
         </template>
       </v-toolbar>
 
       <v-window v-model="currentBoard">
-        <v-window-item v-for="(board, idx) in boards" :value="board.name" :key="idx">
-          <BoardWindow v-bind="board" />
-        </v-window-item>
+        <BoardWindow v-bind="board" v-for="(board, idx) in boards" :value="board" :key="idx" />
       </v-window>
     </v-main>
   </v-layout>
@@ -61,7 +59,7 @@ const boards = ref([]);
 
 getBoards().then(({ data }) => {
   boards.value = data;
-  currentBoard.value = data[0].name;
+  currentBoard.value = data[0];
 });
 
 function changeThemeMode(toDarkMode: boolean): void {
