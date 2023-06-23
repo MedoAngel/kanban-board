@@ -1,11 +1,13 @@
 <template>
-  <div class="pa-3">
-    <v-row style="height: calc(100vh - 56px)" class="flex-nowrap overflow-auto">
-      <v-col cols="3" v-for="(column, idx) in columns" :key="idx">
-        <KanbanColumn v-bind="column" />
-      </v-col>
-    </v-row>
-  </div>
+  <v-window-item>
+    <div class="pa-3">
+      <v-row style="height: calc(100vh - 56px)" class="flex-nowrap overflow-auto">
+        <v-col cols="3" v-for="(column, idx) in columns" :key="idx">
+          <KanbanColumn v-bind="column" />
+        </v-col>
+      </v-row>
+    </div>
+  </v-window-item>
 </template>
 
 <script setup lang="ts">
