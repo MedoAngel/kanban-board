@@ -11,12 +11,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 import KanbanColumn from "@/components/column/KanbanColumn.vue";
 import { getBoardColumns } from "@/api/columns";
 
-const board = defineProps(["id", "name"]);
+const board = defineProps(["id", "name", "newColumn"]);
 const columns = ref([]);
+
+// workaround issue: https://github.com/vuejs/core/issues/8395
+watchEffect(() => {
+  if (board?.newColumn) columns.value.push(board.newColumn);
+});
 
 getBoardColumns(board).then(({ data }) => (columns.value = data));
 </script>
