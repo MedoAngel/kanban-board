@@ -3,19 +3,25 @@
     <v-card color="grey-lighten-2" class="elevation-5 pa-2 text-left">
       <template #title>
         <v-container class="pa-1">
-          <v-row>
-            <v-col cols="11">
+          <v-row justify="space-between">
+            <v-col cols="auto">
               <v-card-title>{{ column.name }}</v-card-title>
             </v-col>
-            <v-col cols="1">
-              <v-btn
-                :ripple="false"
-                density="compact"
-                size="small"
-                variant="icon"
-                icon="fas fa-plus"
-                @click="showCardForm = true"
-              ></v-btn>
+            <v-col cols="auto">
+              <v-tooltip location="top">
+                <template #activator="{ props }">
+                  <v-btn
+                    v-bind="props"
+                    :ripple="false"
+                    density="compact"
+                    size="small"
+                    variant="icon"
+                    icon="fas fa-plus"
+                    @click="showCardForm = true"
+                  ></v-btn>
+                </template>
+                Add New Card
+              </v-tooltip>
             </v-col>
           </v-row>
         </v-container>
