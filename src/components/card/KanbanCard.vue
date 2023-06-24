@@ -35,12 +35,12 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import LinkPrompt from "@/components/LinkPrompt.vue";
-import { BASE_URL } from "../../../server.config";
 
 const card = defineProps(["id", "title", "content"]);
+const baseUrl = window.location.origin;
 
 const showShareDialog = ref(false);
-const cardLink = ref(`${BASE_URL}/share/card/${card.id}`);
+const cardLink = ref(`${baseUrl}/share/card/${card.id}`);
 
 function shareLink() {
   showShareDialog.value = true;
