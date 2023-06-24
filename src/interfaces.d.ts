@@ -1,17 +1,17 @@
 interface Board {
-  id?: Id;
+  id: Id;
   name: string;
   newColumn: Column;
 }
 
 interface Column {
-  id?: Id;
+  id: Id;
   name: string;
   boardId: Id;
 }
 
 interface Card {
-  id?: Id;
+  id: Id;
   title: string;
   content: string;
   status: string;
