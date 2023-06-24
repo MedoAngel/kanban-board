@@ -19,3 +19,7 @@ export async function getColumnCards(column: Column): AxiosPromise {
 export async function sendSaveCard(card: Card): AxiosPromise {
   return await axios.post(cardsUrl, card);
 }
+
+export async function sendUpdateCard(card: Card): AxiosPromise {
+  return await axios.put(`${cardsUrl}/${card.id}`, card);
+}
