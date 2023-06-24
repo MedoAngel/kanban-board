@@ -42,18 +42,29 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch, toValue } from "vue";
 import KanbanCard from "@/components/card/KanbanCard.vue";
 import CardForm from "@/components/card/CardForm.vue";
 import draggable from "vuedraggable";
 import { getColumnCards, sendSaveCard } from "@/api/cards";
+import { commitColumnCardChanges } from "@/components/column/functions";
 
 const column = defineProps(["boardId", "name", "id"]);
 const showCardForm = ref(false);
 const drag = ref(false);
 const cards = ref([]);
 
-function saveCard(cardInfo) {
+watch(
+  cards,
+  () => {
+    const cardValues = toValue(cards);
+
+    commitColumnCardChanges(column, cardValues);
+  },
+  { deep: true }
+);
+
+function saveCard(cardInfo: Card) {
   const card = {
     title: cardInfo.title,
     content: cardInfo.content,
