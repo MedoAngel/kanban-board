@@ -1,7 +1,7 @@
 import axios, { AxiosPromise } from "axios";
-import { BASE_URL } from "../../server.config";
+import { BASE_API_URL } from "../../api.config";
 
-const columnsUrl = `${BASE_URL}/columns`;
+const columnsUrl = `${BASE_API_URL}/columns`;
 
 export async function getBoardColumns(board: Board): AxiosPromise {
   return await axios.get(`${columnsUrl}?boardId=${board.id}`);

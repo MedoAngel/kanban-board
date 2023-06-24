@@ -1,7 +1,7 @@
 import axios, { AxiosPromise } from "axios";
-import { BASE_URL } from "../../server.config";
+import { BASE_API_URL } from "../../api.config";
 
-const boardsUrl = `${BASE_URL}/boards`;
+const boardsUrl = `${BASE_API_URL}/boards`;
 
 export async function getBoards(): AxiosPromise {
   return await axios.get(boardsUrl);

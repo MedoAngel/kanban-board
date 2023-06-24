@@ -1,7 +1,7 @@
 import axios, { AxiosPromise } from "axios";
-import { BASE_URL } from "../../server.config";
+import { BASE_API_URL } from "../../api.config";
 
-const cardsUrl = `${BASE_URL}/cards`;
+const cardsUrl = `${BASE_API_URL}/cards`;
 
 export async function getColumnCards(column: Column): AxiosPromise {
   const paramsList = [
