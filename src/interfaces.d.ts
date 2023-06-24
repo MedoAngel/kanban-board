@@ -14,7 +14,7 @@ interface Card {
   id: Id;
   title: string;
   content: string;
-  status: string;
   boardId: Id;
   columnId: Id;
+  position: number;
 }
