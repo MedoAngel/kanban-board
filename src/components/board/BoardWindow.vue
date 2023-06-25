@@ -2,7 +2,16 @@
   <v-window-item>
     <div class="pa-3">
       <v-row style="height: calc(100vh - 56px)" class="flex-nowrap overflow-auto">
-        <v-col cols="3" v-for="(column, idx) in columns" :key="idx">
+        <v-col
+          cols="12"
+          sm="8"
+          md="6"
+          lg="4"
+          xl="3"
+          xxl="2"
+          v-for="(column, idx) in columns"
+          :key="idx"
+        >
           <KanbanColumn v-bind="column" />
         </v-col>
       </v-row>
