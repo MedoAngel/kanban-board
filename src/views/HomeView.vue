@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    <v-navigation-drawer class="bg-deep-purple px-3" permanent>
+    <v-navigation-drawer class="bg-deep-purple px-3">
       <template #prepend>
         <AddNewBtn @click="showBoardForm = true">Add New Board</AddNewBtn>
       </template>
