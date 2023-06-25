@@ -9,7 +9,7 @@
       </template>
       <v-row justify="end">
         <v-col cols="auto" align="end">
-          <v-tooltip location="bottom">
+          <v-tooltip v-if="card.id" location="bottom">
             <template #activator="{ props }">
               <v-btn
                 v-bind="props"

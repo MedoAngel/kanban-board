@@ -18,7 +18,9 @@ const cardId = route.params.id;
 const card = ref({});
 
 getCardById(cardId).then(({ data }) => {
-  card.value = data;
+  const { id, ...cardInfo } = data;
+
+  card.value = cardInfo;
 });
 </script>
 
