@@ -3,6 +3,10 @@ import { BASE_API_URL } from "../../api.config";
 
 const cardsUrl = `${BASE_API_URL}/cards`;
 
+export async function getCardById(id: Id): AxiosPromise {
+  return await axios.get(`${cardsUrl}/${id}`);
+}
+
 export async function getColumnCards(column: Column): AxiosPromise {
   const paramsList = [
     `columnId=${column.id}`,
