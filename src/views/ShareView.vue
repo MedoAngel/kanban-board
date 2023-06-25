@@ -1,6 +1,10 @@
 <template>
   <div>
-    <v-dialog persistent class="v-col-3" :model-value="true">
+    <v-dialog
+      :model-value="true"
+      class="v-col-11 v-col-sm-9 v-col-md-6 v-col-lg-4 v-col-xl-3 v-col-xxl-2"
+      persistent
+    >
       <KanbanCard v-bind="card" />
     </v-dialog>
   </div>

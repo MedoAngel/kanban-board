@@ -26,7 +26,10 @@
       </v-row>
     </v-card>
 
-    <v-dialog class="v-col-4" v-model="showShareDialog">
+    <v-dialog
+      class="v-col-12 v-col-sm-10 v-col-md-8 v-col-lg-6 v-col-xl-4"
+      v-model="showShareDialog"
+    >
       <LinkPrompt :url="cardLink" />
     </v-dialog>
   </div>

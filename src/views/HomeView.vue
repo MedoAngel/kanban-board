@@ -31,11 +31,17 @@
     </v-main>
   </v-layout>
 
-  <v-dialog class="v-col-3" v-model="showBoardForm">
+  <v-dialog
+    v-model="showBoardForm"
+    class="v-col-11 v-col-sm-9 v-col-md-6 v-col-lg-4 v-col-xl-3 v-col-xxl-2"
+  >
     <BoardForm @save="saveBoard" @cancel="showBoardForm = false" v-if="showBoardForm" />
   </v-dialog>
 
-  <v-dialog class="v-col-3" v-model="showColumnForm">
+  <v-dialog
+    v-model="showColumnForm"
+    class="v-col-11 v-col-sm-9 v-col-md-6 v-col-lg-4 v-col-xl-3 v-col-xxl-2"
+  >
     <ColumnForm @save="saveColumn" @cancel="showColumnForm = false" v-if="showColumnForm" />
   </v-dialog>
 </template>

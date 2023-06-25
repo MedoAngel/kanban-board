@@ -41,7 +41,10 @@
         </template>
       </draggable>
     </v-card>
-    <v-dialog class="v-col-3" v-model="showCardForm">
+    <v-dialog
+      v-model="showCardForm"
+      class="v-col-11 v-col-sm-9 v-col-md-6 v-col-lg-4 v-col-xl-3 v-col-xxl-2"
+    >
       <CardForm @save="saveCard" @cancel="showCardForm = false" v-if="showCardForm" />
     </v-dialog>
   </div>
