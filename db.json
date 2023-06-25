@@ -1,0 +1,249 @@
+{
+  "boards": [
+    {
+      "id": 1,
+      "name": "Project Management"
+    },
+    {
+      "id": 2,
+      "name": "Marketing Campaigns"
+    }
+  ],
+  "columns": [
+    {
+      "id": 1,
+      "name": "Backlog",
+      "boardId": 1
+    },
+    {
+      "id": 2,
+      "name": "In Progress",
+      "boardId": 1
+    },
+    {
+      "id": 3,
+      "name": "Testing",
+      "boardId": 1
+    },
+    {
+      "id": 4,
+      "name": "Ideas",
+      "boardId": 2
+    },
+    {
+      "id": 5,
+      "name": "Planning",
+      "boardId": 2
+    },
+    {
+      "id": 6,
+      "name": "Execution",
+      "boardId": 2
+    },
+    {
+      "id": 7,
+      "name": "Analytics",
+      "boardId": 2
+    }
+  ],
+  "cards": [
+    {
+      "id": 1,
+      "title": "Define project scope",
+      "content": "Create a detailed project scope document outlining the project goals, objectives, deliverables, and constraints.",
+      "status": "Backlog",
+      "columnId": 1,
+      "boardId": 1,
+      "position": 0
+    },
+    {
+      "id": 2,
+      "title": "Identify project stakeholders",
+      "content": "Identify and document all project stakeholders, including their roles, responsibilities, and expectations.",
+      "status": "Backlog",
+      "columnId": 1,
+      "boardId": 1,
+      "position": 1
+    },
+    {
+      "id": 3,
+      "title": "Conduct market research",
+      "content": "Gather information about the market, target audience, and competitors to inform project decision-making.",
+      "status": "Backlog",
+      "columnId": 1,
+      "boardId": 1,
+      "position": 2
+    },
+    {
+      "id": 4,
+      "title": "Create project timeline",
+      "content": "Develop a comprehensive project timeline with key milestones, tasks, and dependencies.",
+      "status": "Backlog",
+      "columnId": 1,
+      "boardId": 1,
+      "position": 3
+    },
+    {
+      "id": 5,
+      "title": "Define project budget",
+      "content": "Determine the project budget, including cost estimates for resources, equipment, and materials.",
+      "status": "Backlog",
+      "columnId": 1,
+      "boardId": 1,
+      "position": 4
+    },
+    {
+      "id": 6,
+      "title": "Develop wireframes",
+      "content": "Create wireframes to visualize the layout and structure of the project's user interface.",
+      "status": "In Progress",
+      "columnId": 2,
+      "boardId": 1,
+      "position": 0
+    },
+    {
+      "id": 7,
+      "title": "Gather client feedback",
+      "content": "Schedule meetings with the client to gather feedback on project progress and incorporate their suggestions.",
+      "status": "In Progress",
+      "columnId": 2,
+      "boardId": 1,
+      "position": 1
+    },
+    {
+      "id": 8,
+      "title": "Build database schema",
+      "content": "Design and implement the database schema to support the project's data storage and retrieval needs.",
+      "status": "In Progress",
+      "columnId": 2,
+      "boardId": 1,
+      "position": 2
+    },
+    {
+      "id": 9,
+      "title": "Perform unit tests",
+      "content": "Write and execute unit tests to ensure the functionality and integrity of individual components.",
+      "status": "Testing",
+      "columnId": 3,
+      "boardId": 1,
+      "position": 0
+    },
+    {
+      "id": 10,
+      "title": "Conduct user acceptance testing",
+      "content": "Engage end-users to conduct acceptance tests and gather feedback on the system's usability and performance.",
+      "status": "Testing",
+      "columnId": 3,
+      "boardId": 1,
+      "position": 1
+    },
+    {
+      "id": 11,
+      "title": "Social Media Contest",
+      "content": "Plan and execute a social media contest to engage and expand our audience.",
+      "status": "Ideas",
+      "columnId": 4,
+      "boardId": 2,
+      "position": 0
+    },
+    {
+      "id": 12,
+      "title": "Influencer Collaboration",
+      "content": "Identify and collaborate with relevant influencers to promote our brand and products.",
+      "status": "Ideas",
+      "columnId": 4,
+      "boardId": 2,
+      "position": 1
+    },
+    {
+      "id": 13,
+      "title": "Content Creation",
+      "content": "Develop engaging and shareable content (blogs, videos, infographics) for our target audience.",
+      "status": "Ideas",
+      "columnId": 4,
+      "boardId": 2,
+      "position": 2
+    },
+    {
+      "id": 14,
+      "title": "Partnerships",
+      "content": "Explore potential partnerships with complementary businesses to leverage each other's audience.",
+      "status": "Ideas",
+      "columnId": 4,
+      "boardId": 2,
+      "position": 3
+    },
+    {
+      "id": 15,
+      "title": "Define Campaign Goals",
+      "content": "Establish specific, measurable, achievable, relevant, and time-bound (SMART) goals for the campaign.",
+      "status": "Planning",
+      "columnId": 5,
+      "boardId": 2,
+      "position": 0
+    },
+    {
+      "id": 16,
+      "title": "Target Audience Analysis",
+      "content": "Conduct market research and analyze the target audience to create detailed buyer personas.",
+      "status": "Planning",
+      "columnId": 5,
+      "boardId": 2,
+      "position": 1
+    },
+    {
+      "id": 17,
+      "title": "Budget Allocation",
+      "content": "Allocate the campaign budget across different marketing channels and activities.",
+      "status": "Planning",
+      "columnId": 5,
+      "boardId": 2,
+      "position": 2
+    },
+    {
+      "id": 18,
+      "title": "Social Media Ads",
+      "content": "Create and run targeted social media ad campaigns to increase brand visibility and reach.",
+      "status": "Execution",
+      "columnId": 6,
+      "boardId": 2,
+      "position": 0
+    },
+    {
+      "id": 19,
+      "title": "Email Marketing",
+      "content": "Design and send engaging email campaigns to nurture leads and drive conversions.",
+      "status": "Execution",
+      "columnId": 6,
+      "boardId": 2,
+      "position": 1
+    },
+    {
+      "id": 20,
+      "title": "Content Publishing",
+      "content": "Publish high-quality content across various platforms to attract and engage the target audience.",
+      "status": "Execution",
+      "columnId": 6,
+      "boardId": 2,
+      "position": 2
+    },
+    {
+      "id": 21,
+      "title": "Campaign Performance Tracking",
+      "content": "Monitor and analyze key performance indicators (KPIs) to evaluate the effectiveness of the campaign.",
+      "status": "Analytics",
+      "columnId": 7,
+      "boardId": 2,
+      "position": 0
+    },
+    {
+      "id": 22,
+      "title": "Conversion Rate Optimization",
+      "content": "Optimize landing pages and calls-to-action to improve conversion rates and maximize campaign results.",
+      "status": "Analytics",
+      "columnId": 7,
+      "boardId": 2,
+      "position": 1
+    }
+  ]
+}
